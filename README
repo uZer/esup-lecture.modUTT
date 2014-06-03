@@ -1,0 +1,28 @@
+# Universite de Technologie de Troyes
+# Theme overlay for esup-lecture (uPortal)
+#
+# Youenn Piolet
+# <piolet.y@gmail.com>
+# March 2014
+
+Deploy:
+
+    Use deploy.sh to push files to the compilation folder of uPortal.
+    Please double check paths in the deploy.sh script
+
+Fetch-update: (To be done or replaced by git)
+
+    If a new version is available, first use fetch-update.sh then use deploy.sh when
+    you want to push the new updates to the compilation folder.
+
+Deploy-Forced: (To be done)
+
+    If changes are not efficient after compilation (happens sometimes...), you
+    can use deploy-forced.sh with extra care to push changes to the running
+    version of uPortal. This script will replace uPortal files directly in the
+    production environment.
+
+
+Please always have a look at path variables in the beginning of sh files to be
+sure it fits the environment configuration.
+

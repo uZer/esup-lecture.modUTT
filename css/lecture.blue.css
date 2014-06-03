@@ -1,0 +1,478 @@
+/***************************** General fixes *********************************/
+#mesactus h1 		{	margin: 0;					}
+#mesactus .clear 	{ 	clear: both; 				}
+#mesactus .borderdiv {
+	border: 1px solid #e6e9ec; border-top: none; border-bottom: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#mesactus a { 	text-decoration: none; 	}
+
+#mesactus * {
+	font-family: Optima, "Segoe UI", Candara, Calibri, Arial, sans-serif !important;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#mesactus button, #mesactus input[type="submit"], #mesactus input[type="button"] {
+	background-color: #f5f7f9 !important;
+	color: #4e91ba !important;
+	border: 1px solid #e6e9ec;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0);
+	-webkit-box-shadow: 0 1px 2px rgba(42,91,120,.5);
+	-moz-box-shadow: 0 1px 2px rgba(42,91,120,.5);
+	box-shadow: 0 1px 2px rgba(42,91,120,.5);
+}
+
+#modlecture h1, #modlecture h2, #modlecture h3,
+#modlecture h4, #modlecture h5, #modlecture h6 {
+	border: none;
+	text-shadow: none;
+}
+
+#modlecture .button, #modlecture form input[type="submit"] {
+	margin: 0;
+}
+
+#modlecture .up input[type="text"],
+#modlecture .up input:not([type="submit"]),
+#modlecture .up input:not([type="button"]) {
+	margin: 0;
+	padding: 5px 0px;
+ 	color: #fff;
+	bottom: 0px;
+	right: 0;
+	position: absolute ;
+	width: 80px;
+	background: #999;
+	border: none;
+	border-bottom: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+}
+
+.fl-theme-mist #modlecture .fl-listmenu {
+	border: 1px solid #d9d9d9;;
+	border-bottom: none;
+}
+
+.fl-theme-mist #modlecture .fl-listmenu li,
+.fl-theme-mist #modlecture .fl-listmenu li a {
+	background: #fff;
+}
+
+/***************************** Android fixes *******************************/
+
+.fl-theme-android #modlecture  {
+	color: #000;
+}
+
+.fl-theme-android #modlecture  [class*=fl-list]:not(.fl-list):not(.fl-grid) a:active,
+.fl-theme-android #modlecture [class*=fl-list]:not(.fl-list):not(.fl-grid) a.fl-link-hilight {
+	color: #000;
+	background: #fff;
+}
+
+.fl-theme-android #modlecture [class*=fl-list]>li {
+	font-weight: normal;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.fl-theme-android #modlecture a {
+	color: #000;
+}
+
+
+
+/***************************** Main components *******************************/
+#modlecture {
+	position: relative;
+}
+
+.container {
+	padding: 0;
+}
+
+#lemag {
+	padding: 20px 0;
+}
+
+#actu-header {
+	display: table;
+	width: 100%;
+	border: none;
+}
+
+#actu-header h1 {
+	color: #fff;
+	font-weight: lighter;
+	font-size: 20pt;
+}
+
+/******************************* Main items **********************************/
+.btn {
+	color: #4e91ba !important;
+	background-color: #f5f7f9 !important;
+	border: 1px solid #e6e9ec;
+	padding: 5px;
+	margin: 0;
+	text-transform:uppercase;
+	font-size: 8pt;
+}
+
+.btn-green {
+	color: #fff  !important;
+	background-color: #67ba4e  !important;
+	border: none;
+	padding: 3px 10px;
+	margin: 0;
+	font-size: 8pt;
+}
+
+.btn:hover, .btn:active {
+	background-color: #e6e9ec !important;
+}
+
+.btn-green:hover, .btn-green:active {
+	background-color: #30781a !important;
+}
+
+
+.left-2 {
+ 	padding: 10px;
+ 	display: table-cell;
+ 	vertical-align: middle;
+}
+
+.right-2 {
+ 	padding: 10px;
+  	display:table-cell;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.itembar {
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid #e6e9ec;
+	border-top: none;
+}
+
+.itembar a, .itembar a:active {
+	background: #fff;
+	border-right: 1px solid #e6e9ec;
+	color: #484848;
+	text-transform: uppercase;
+	font-size: 8pt;
+	padding: 5px 5px;
+	display: block;
+	float: left;
+}
+
+.itembar a:hover {
+	background-color: #e6e9ec;
+	color: #4e91ba !important;
+	text-decoration: none;
+}
+
+.itembar a.menu {
+	padding-top: 1px;
+	padding-bottom: 0;
+	border-right: none;
+}
+
+.itembar a select {
+	color: #4e91ba !important;
+	border-color: #e6e9ec;
+}
+
+
+
+/********************************** Classes **********************************/
+
+/* Section */
+.section-title {
+	display: table;
+	width: 100%;
+	height: 24px;
+	border-top: 1px solid #e6e9ec;
+	border-bottom: 1px solid #e6e9ec;
+}
+
+.section-title h1 {
+	color: #fff !important;
+	font-weight: lighter;
+	font-style: oblique;
+	font-size: small;
+	padding: 3px 5px;
+	float: left;
+}
+
+.section-title h1 a {
+	color: #fff !important;
+}
+
+.subsection-title h2 a {
+	color: #495d69 !important;
+}
+
+.subsection-title .counter,
+.subsection-title .counter:hover {
+	margin: 3px 5px;
+	color: #495d69 !important;
+	padding: 0 4px;
+	font-weight: bold !important;
+	min-width: 20px;
+	height: 16px;
+	text-align: center;
+	font-size: 9pt;
+	float: right;
+	background-color: #fff;
+	display: block;
+	border-radius:4px;
+	border: 1px solid #e6e9ec;
+}
+
+.subsection-title .counter:hover {
+	font-weight: bold !important;
+	text-decoration: none;
+	cursor: default;
+}
+
+.subsection-title ul, .subsection-title li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.subsection-title li {
+	width: 100%;
+	position: relative;
+	border-bottom: 1px solid #d2dce6;
+}
+
+.subsection-title li:before {
+	width: 0;
+	height: 0;
+	content: '';
+	left: 0px;
+	top: 8px;
+	position: absolute;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #495d69;
+}
+
+.subsection-title h2 {
+	font-size: 8pt;
+	margin: 0;
+	display: block;
+	color: #495d69 !important;
+	padding: 7px 15px 7px 15px;
+	font-weight: bolder;
+	text-transform:uppercase;
+}
+
+/* Article */
+.article-iterator {
+	position: relative;
+	margin: 0 auto;
+}
+
+.article {
+	background-color: white;
+	border: 1px solid #e6e9ec;
+	border-bottom: none;
+    margin-bottom: 40px;
+}
+
+.article-title {
+	display: block;
+	margin-top: 0px;
+	margin-bottom: 0px;
+  	padding: 4px 7px 0px 7px;
+ }
+
+.article-title h1 {
+  	line-height: 1.35;
+	font-weight: bold;
+	font-size: 11pt;
+  	text-align: justify;
+  	display: block;
+}
+
+.article-thumbnail {
+	border: 1px solid #d9d9d9;
+	border-top: none;
+	border-left: none;
+	float: left;
+	background-color: white;
+  	vertical-align: middle;
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	margin-right: 5px;
+}
+
+.articleCharge, .resumeArticle {
+	padding: 7px;
+	text-align: justify;
+	font-size: small;
+}
+
+.resumeArticle {
+    /*min-height: 75px;*/
+}
+
+
+.resumeArticle img {
+	float: left;
+	padding: 0 5px 0 0;
+	max-width: 75px;
+}
+
+.article-date, .article-auteur {
+	color: #777d80;
+	font-size: 8pt;
+	padding: 0px 5px;
+	margin-left: 3px;
+}
+
+.meta {
+	margin-top: 20px;
+}
+
+.article-block {
+	padding: 2px 7px 8px 7px;
+	font-size: 9pt;
+	text-align: justify;
+	line-height: 1.30;
+}
+
+.readnext,.archive,.archivelu {
+	display: inline-block;
+	font-size: 8pt;
+	text-transform: uppercase;
+	text-align: center;
+	height: 14px;
+	border-bottom: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+	position: absolute ;
+	bottom: -20px;
+}
+
+a.readnext {
+	border-left: 1px solid #d9d9d9;
+ 	color: #777d80 !important;
+ 	width: 100%;
+	padding: 5px 0px;
+	left: 0;
+}
+
+a.readnext:hover {
+ 	color: #777d80 !important;
+ 	background: #fff;
+}
+
+a.archive, a.archivelu {
+	padding: 5px 7px;
+ 	color: #fff !important;
+	right: 0;
+	background: #56a240 !important;
+}
+
+a.archivelu {
+    background: #d9d9d9 !important;
+}
+
+
+#mesactus .footer {
+	font-size: 7pt;
+	text-align: right;
+	padding: 10px;
+	color: #777;
+}
+
+.suscribebtn {
+	padding: 5px 7px;
+	color: #fff !important;
+	right: 0;
+	position: absolute;
+	bottom: 0;
+	width: 100px;
+	text-align: center;
+}
+
+.catlist {
+	background: #fff !important;
+	border: 1px solid #d9d9d9;
+	border-bottom: none;
+}
+
+.catlist li {
+	background: #fff !important;
+	border: none;
+	border-bottom: 1px solid #d9d9d9 !important;
+	padding: 5px 0px;
+	position: relative;
+}
+
+
+/******************************* Colors **********************************/
+
+/* Color 1 */
+#actu-header {  background: #4E90BA url("images/headerbg.blue.png") no-repeat bottom right;}
+.article-title h1 {
+                                        color: #4E90BA !important;
+}
+.section-title {
+										background: #4E90BA;
+                                        border: 1px solid #4E90BA;
+}
+
+
+/* Color 2 */
+.itembar a:hover
+.subsection-title,
+#mesactus button,
+#mesactus input[type="submit"],
+#mesactus input[type="button"],
+#modlecture .fl-listmenu li,
+#modlecture .fl-listmenu li a {
+										color: #465C68 !important;
+}
+#modlecture .fl-listmenu li a:hover {
+										background-color: #465C68;
+}
+
+/* Color 3 */
+.archive,
+.readnext,
+.itembar a:hover,
+.subsection-title,
+.subsection-title li,
+#mesactus button,
+#mesactus input[type="submit"],
+#mesactus input[type="button"],
+.fl-theme-mist #modlecture .fl-listmenu li a:hover {
+										background-color: #F5F6F8 !important;
+}
+
+/* Extras */
+#modlecture .fl-listmenu li a.suscribebtn {
+	color: #fff !important;
+}
+
+.sus {
+	background: #56a240 !important;
+}
+
+.unsus {
+	background: #c92424 !important;
+}
+
+.oblig {
+	background: #495d69 !important;
+}

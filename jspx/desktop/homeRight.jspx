@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<div xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <!-- MENU with Source name, sort list and zoom -->
+    <br/>
+    <h:panelGroup id="hr" layout="block"
+        rendered="#{!homeController.guestMode &amp;&amp; homeController.userCanMarkRead}">
+        #{msgs['selectorLabel']}
+        <h:selectOneMenu id="sidm" value="#{homeController.itemDisplayMode}"
+            converter="#{itemDisplayModeConverter}"
+            styleClass="itemDisplayModeSelector">
+            <f:selectItems value="#{homeController.availableItemDisplayModes}"/>
+        </h:selectOneMenu>
+        <h:commandButton id="idm" styleClass="itemDisplayModeButton"
+            value="#{msgs['changeItemDisplayModeButtonLabel']}"
+            action="#{homeController.changeItemDisplayMode}" />
+        <ui:fragment rendered="#{!homeController.forcedNoTreeVisible}">
+            <h:commandButton id="ttv" action="#{homeController.toggleTreeVisibility}"
+                image="#{homeController.toggleTreeVisibilityImage}" alt="#{homeController.toggleTreeVisibilityTitle}"
+                title="#{homeController.toggleTreeVisibilityTitle}" styleClass="valign" />
+        </ui:fragment>
+        <h:commandButton id="maiar" action="#{homeController.markAllItemsAsRead}"
+            image="/media/unread.png" alt="#{msgs['markAllAsRead']}"
+            title="#{msgs['markAllAsRead']}" styleClass="valign" />
+        <h:commandButton id="maiau" action="#{homeController.markAllItemsAsNotRead}"
+            image="/media/read.png" alt="#{msgs['markAllAsNotRead']}"
+            title="#{msgs['markAllAsNotRead']}" styleClass="valign" />
+    </h:panelGroup>
+    <!-- Source(s) and Items display -->
+    <!-- categories display -->
+    <ui:repeat id="lcats" value="#{homeController.selectedOrAllCategories}"
+        var="cat">
+        <!-- sources display -->
+        <ui:repeat id="lsrcs" value="#{cat.selectedOrAllSources}" var="source">
+            <h:panelGroup id="d4s" layout="block" rendered="#{source.withDisplayedItems}">
+                <div class="section-title">
+                    <a href="#">
+                        <h1>#{cat.name}</h1>
+                    </a>
+                </div>
+                <div class="subsection-title">
+                    <ul>
+                        <a href="#"><li>
+                                <h2>#{source.name}</h2>
+                                <a class="counter">88</a>
+                        </li></a>
+                    </ul>
+                </div>
+                <!-- Items display -->
+                <ui:repeat id="items" value="#{source.sortedItems}" var="item">
+                    <!-- Read/Unread Button -->
+
+                    <div class="article"> <!-- Article Start -->
+                        <div class="meta">
+                            <span class="article-date">Lundi 27 Janvier 2014     à5:46 GMT</span>
+                            <span class="article-auteur">Par Laure GRANDHOMME</span>
+                        </div>
+
+                        <img class="article-thumbnail" src="thumbnail.png" />
+
+                        <a class="article-title" href="#">
+                            <h1>Titre de l'article un peu moins long</h1></a>
+
+                        <div class="article-content">
+                            <div class="text">
+                                <h:outputText id="item" value="#{item.htmlContent}" escape="false" />
+                            </div>
+                        </div>
+
+                        <div class="article-footer preview meta">
+                            <a href="#" class="readnext">Lire la suite...</a>
+                            <div class="archive">
+                                <h:commandButton id="mar" action="#{homeController.toggleItemReadState}"
+                                    image="/media/unread.png" alt="#{msgs['markAsRead']}"
+                                    title="#{msgs['markAsRead']}"
+                                    rendered="#{!item.read and !homeController.guestMode and !item.dummy and cat.userCanMarkRead}"
+                                    styleClass="lecture-markAsReadButton">
+                                    <f:setPropertyActionListener target="#{homeController.ualSource}"
+                                        value="#{source}" />
+                                    <f:setPropertyActionListener target="#{homeController.ualItem}"
+                                        value="#{item}" />
+                                </h:commandButton>
+                                <h:commandButton id="mau" action="#{homeController.toggleItemReadState}"
+                                    image="/media/read.png" alt="#{msgs['markAsUnread']}"
+                                    title="#{msgs['markAsUnread']}"
+                                    rendered="#{item.read and !homeController.guestMode and !item.dummy and cat.userCanMarkRead}"
+                                    styleClass="lecture-markAsUnreadButton">
+                                    <f:setPropertyActionListener target="#{homeController.ualSource}"
+                                        value="#{source}" />
+                                    <f:setPropertyActionListener target="#{homeController.ualItem}"
+                                        value="#{item}" />
+                                </h:commandButton>
+                            </div>
+                        </div>
+                        <!-- Item Display -->
+                    </div><!-- Article EOF -->
+                </ui:repeat>
+            </h:panelGroup>
+        </ui:repeat>
+    </ui:repeat>
+</div>

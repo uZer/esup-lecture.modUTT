@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<div xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/stylesheets/template.jspx">
+        <ui:define name="content">
+            <div class="container" id="modlecture" >
+                <div id="#{homeController.namespace}main" class="esup-lecture">
+                    <div id="mesactus">
+                        <h:form id="f">
+                            <h:panelGroup id="l" rendered="#{homeController.treeVisible and !homeController.guestMode}">
+                                <ui:include src="homeLeft.jspx" />
+                            </h:panelGroup>
+
+
+                            <!-- Source(s) and Items display -->
+
+                            <!-- categories display -->
+                            <ui:repeat id="lcats" value="#{homeController.selectedOrAllCategories}"
+                                var="cat">
+                                <!-- sources display -->
+                                <ui:repeat id="lsrcs" value="#{cat.selectedOrAllSources}" var="source">
+                                    <h:panelGroup id="d4s" layout="block" rendered="#{source.withDisplayedItems}">
+
+                                        <div class="borderdiv">
+                                            <div class="section-title">
+                                                <a href="#">
+                                                    <h1>#{cat.name}</h1>
+                                                </a>
+                                            </div>
+
+                                            <div class="subsection-title"><ul>
+                                                    <a href="#"
+                                                        class="#{source.id}-toggle"><li>
+                                                            <h2>#{source.name} (#{source.unreadItemsNumber})</h2>
+                                                    </li></a>
+                                            </ul></div>
+                                        </div>
+                                        <div class="#{source.id}">
+                                            <!-- Items display -->
+                                            <ui:repeat id="items" value="#{source.sortedItems}" var="item">
+                                                <!-- Read/Unread Button -->
+
+                                                <div class="article-iterator">
+                                                    <h:outputText id="item" value="#{item.htmlContent}" escape="false" />
+                                                    <h:commandLink id="mau"
+                                                        action="#{homeController.toggleItemReadState}"
+                                                        title="#{msgs['markAsUnread']}"
+                                                        rendered="#{item.read and !homeController.guestMode and !item.dummy and cat.userCanMarkRead}"
+                                                        value="Marquer non lu"
+                                                        styleClass="archivelu">
+                                                        <f:setPropertyActionListener target="#{homeController.ualSource}"
+                                                            value="#{source}" />
+                                                        <f:setPropertyActionListener target="#{homeController.ualItem}"
+                                                            value="#{item}" />
+                                                    </h:commandLink>
+
+                                                    <h:commandLink id="mar"
+                                                        action="#{homeController.toggleItemReadState}"
+                                                        title="#{msgs['markAsRead']}"
+                                                        rendered="#{!item.read and !homeController.guestMode and !item.dummy and cat.userCanMarkRead}"
+                                                        value="Marquer comme lu"
+                                                        styleClass="archive">
+                                                        <f:setPropertyActionListener target="#{homeController.ualSource}"
+                                                            value="#{source}" />
+                                                        <f:setPropertyActionListener target="#{homeController.ualItem}"
+                                                            value="#{item}" />
+                                                    </h:commandLink>
+
+                                                </div>
+                                                <!-- Item Display -->
+                                            </ui:repeat>
+                                        </div>
+                                    </h:panelGroup>
+                                </ui:repeat>
+                            </ui:repeat>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</div>
+
